@@ -1,0 +1,157 @@
+:root {
+  --bg: #0c0c0c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg);
+  overflow: hidden;
+  cursor: none;
+}
+
+#custom-cursor {
+  width: 20px; /* Or the size you want */
+  height: 20px; /* Make this the same as the width */
+  border: 2px solid white; /* Or another color */
+  border-radius: 50%; /* Makes it circular */
+  position: fixed;
+  transform: translate(-50%, -50%); /* Center the cursor around the mouse coordinates */
+  pointer-events: none; /* Makes sure the cursor doesn't interfere with clickable items */
+  z-index: 9999; /* Ensure it appears over all other elements */
+}
+
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  width: 85vw;
+  margin: 0 auto 2em auto;
+  padding: 1em 0.5em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;  /* ensures content inside the container is stacked vertically */
+  align-items: center;  
+}
+
+.indicator {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for readability */
+  color: #fff; 
+  padding: 2px 5px;
+  
+
+  font-size: 0.9rem;
+  white-space: nowrap; /* To prevent line breaks within the indicator */
+  transform: translate(-100%, 0); /* To position the indicator to the left of the mouse position */
+  pointer-events: none; /* So that the indicator doesn't interfere with mouse interactions */
+  transition: all 0.2s ease; /* Smooth movement */
+}
+
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-item {
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 20px;
+  height: 60vh;
+  margin: 0 5px;
+  background: #000;
+  overflow: hidden;
+  transition: flex 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.description {
+  position: absolute;
+  top: 10px;  /* Adjust based on your preference */
+  right: 10px; /* Adjust based on your preference */
+  color: #fff;  /* Making the text white so it's visible on dark backgrounds */
+  border-radius: 3px; /* Optional: Round the corners for aesthetics */
+  font-size: 0.9rem; /* Adjust based on your preference */
+  z-index: 2; /* Ensuring it's above the image */
+}
+
+.gallery-item img {
+  width: 600px;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+}
+
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;  /* center the button */
+  margin-top: 20px;
+}
+
+
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: var(--bg);
+  padding: 15px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+
+}
+
+
+.input-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.5); /* Black with a bit of opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+
+
